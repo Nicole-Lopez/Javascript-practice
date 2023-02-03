@@ -163,6 +163,23 @@ class LinkedList {
   // ******************************************************************
 
 
+  // ******************************************************************
+  // *********************** CHANGE NOT NUMBERS ***********************
+
+  changeNotNumbers(replace) {
+    let current = this.head;
+    let count = 0
+
+    while(current){
+        if (typeof current.data === 'string' && Number.isNaN(parseInt(current.data))) { 
+            current.data = replace
+            count++
+        }
+        current = current.next;
+    }
+
+    return count    
+  }
 
 
 }
@@ -177,7 +194,5 @@ const list = new LinkedList();
 // list.removeAt(2)
 
 // list.printListData();
-
-
 
 console.log(list)
