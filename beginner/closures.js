@@ -38,4 +38,16 @@ function cacheFunction(cb) {
 	}
 }
 
+// MULTIPLIER
+// - var multByFour = closureMult(4);
+// - multByFour(2) --> 8 (2 * 4)
+// - multByFour(5) --> 20
+// - var multBySix = closureMult(6);
+// - multBySix(4) --> 24
+
+var closureMult = function(multiplier) {
+    return function multByFour(num) {
+        return multiplier * num;
+    } 
+}
 
