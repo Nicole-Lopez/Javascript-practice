@@ -6,10 +6,11 @@ function BinarySearchTree(value) {
 
 
 BinarySearchTree.prototype.size = function () {
-	if(this.right === null && this.left === null) return 1;
-	if(this.left !== null && this.right === null) return 1 + this.left.size();
-	if(this.right !== null && this.left === null) return 1 + this.right.size();
-	if(this.right !== null && this.left !== null) return 1 + this.left.size() + this.right.size();	
+    let value = this.value? 1 : 0
+    let right = this.right ? this.right.size() : 0
+    let left = this.left ? this.left.size() : 0
+
+    return value + right + left
 }
 
 
@@ -91,3 +92,18 @@ BinarySearchTree.prototype.breadthFirstForEach = function (cb, array=[]){
 	  	array.shift().breadthFirstForEach(cb, array);
 	}
 };
+
+
+BinarySearchTree.prototype.sum = function() {
+    // Tu código aca:
+    let value = this.value
+    let right = this.right ? this.right.sum() : 0
+    let left = this.left ? this.left.sum() : 0
+
+    return value + right + left
+}
+
+
+
+
+
