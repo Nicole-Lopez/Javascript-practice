@@ -152,12 +152,14 @@ class LinkedList {
   // ******************************************************************
   // *********************** PRINT LIST DATA ***********************
   printListData() {
-    let current = this.head;
-
-    while (current) {
-      console.log(current.data);
-      current = current.next;
+    let print = 'head'
+    let pointer = this.head
+    while (pointer) {
+        print += ' --> ' + pointer.data
+        pointer = pointer.next;
     }
+    print += ' --> null'
+    return print
   }
   // ******************************************************************
   // ******************************************************************
@@ -181,18 +183,63 @@ class LinkedList {
     return count    
   }
 
+  // ******************************************************************
+  // ******************************************************************
+
+
+
+  // ******************************************************************
+  // *********************** FILTER VALUES ***********************
+
+  filter(check) {
+    let pointer = this.head;
+
+    while (pointer) {
+      if (check(pointer.data)) return pointer.data;
+
+      pointer = pointer.next;
+    }
+
+    return null;
+  }
+  // ******************************************************************
+  // ******************************************************************
+
+
+
+  // ******************************************************************
+  // *********************** SEARCH VALUES ***********************
+
+  search(check) {
+    if (check instanceof Function) return this.filter(check);
+
+    let pointer = this.head;
+
+    while (pointer) {
+      if (check === pointer.value) return pointer.value;
+
+      pointer = pointer.next;
+    }
+
+    return null;
+  }
+
+
+
+
+
 
 }
 
 const list = new LinkedList();
 
-// list.insertFirst(100);
-// list.insertLast(200);
-// list.insertLast(300);
-// list.insertLast(400);
+list.insertFirst(100);
+list.insertLast(200);
+list.insertLast(300);
+list.insertLast(400);
 
 // list.removeAt(2)
 
-// list.printListData();
+console.log(list.printListData())
 
 console.log(list)
