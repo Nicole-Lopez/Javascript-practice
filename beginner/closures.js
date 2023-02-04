@@ -51,3 +51,19 @@ var closureMult = function(multiplier) {
     } 
 }
 
+
+// > var sqrt = exponencial(2);
+// > sqrt(2);
+// < 4
+// > sqrt(3);
+// < 9
+// > sqrt(4);
+// < 16
+
+function exponencial(exp) {
+    return function sqrt(base){
+        return Math.pow(base, exp)
+    }
+}
+
+
