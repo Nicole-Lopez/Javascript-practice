@@ -103,7 +103,25 @@ BinarySearchTree.prototype.sum = function() {
     return value + right + left
 }
 
+// --------------------------------------------------------------
+//     32
+//    /  \
+//   8   64
+//  / \
+// 5   9
+// resultado:[5,8,9,32,64]
 
+BinarySearchTree.prototype.toArray = function() {
+    let arr = []
+
+    if (this.value) arr.push(this.value)
+    
+    if (this.right) arr.push(this.right.toArray())
+ 
+    if (this.left) arr.push(this.left.toArray())
+ 
+    return arr.flat(Infinity).sort((a, b) => a - b )    
+}
 
 
 
